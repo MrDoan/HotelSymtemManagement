@@ -84,4 +84,15 @@ public class HotelServiceImpl implements HotelService {
 		}
 	}
 
+	@Override
+	public Hotel getByEmail(String hotelEmail) throws Exception {
+		try {
+			return hotelRepository.getByEmail(hotelEmail);
+		}
+		catch (Exception e) {
+			log.error(e.getMessage());
+			throw e;
+		}
+	}
+
 }

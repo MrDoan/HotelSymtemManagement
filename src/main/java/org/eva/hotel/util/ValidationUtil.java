@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.eva.hotel.beans.dto.hotel.HotelDTOIn;
+import org.eva.hotel.entity.Hotel;
 
 public final class ValidationUtil {
 	public static final boolean isValidEmailAddress(String email) {
@@ -68,6 +69,22 @@ public final class ValidationUtil {
 			errors.add("Invalid phone number: " + hotelInfo.getPhone());
 		}
 
+		return errors;
+	}
+
+	public static final List<String> isValidHotelInfo(HotelDTOIn hotelInfo, Hotel hotel) {
+		List<String> errors = new ArrayList<String>();
+
+		if (hotel == null) return errors;
+
+		if (hotel.getName().equalsIgnoreCase(hotelInfo.getName())) {
+			errors.add("Hotel name: " + hotelInfo.getName() + " is already exists!");
+		}
+		
+		if(hotel.getEmail().equals(hotelInfo.getEmail())) {
+			errors.add("Hotel email : " + hotelInfo.getEmail() + " is already exists!");
+		}
+		
 		return errors;
 	}
 }

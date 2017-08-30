@@ -18,5 +18,5 @@ public interface HotelService {
 
 	List<Room> getRoomsByHotel(long hotelId) throws Exception;
 
-
+	Hotel getByEmail(String hotelEmail) throws Exception;
 }

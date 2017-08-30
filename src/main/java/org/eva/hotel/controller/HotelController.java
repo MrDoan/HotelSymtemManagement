@@ -94,6 +94,14 @@ public class HotelController {
 		}
 
 		try {
+
+			validationError = ValidationUtil.isValidHotelInfo(hotelInfo,
+					hotelService.getByEmail(hotelInfo.getEmail()));
+			if (!validationError.isEmpty()) {
+				result = new AddHotelResponseBean(hotelInfo, validationError, "OK");
+				return new ResponseEntity<ResponseBean>(result, HttpStatus.BAD_REQUEST);
+			}
+
 			Hotel hotel = new Hotel();
 
 			BeanUtils.copyProperties(hotelInfo, hotel);

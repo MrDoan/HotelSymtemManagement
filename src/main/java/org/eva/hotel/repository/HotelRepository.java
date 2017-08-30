@@ -18,4 +18,5 @@ public interface HotelRepository {
 
 	List<Room> getRoom(long hotelId) throws Exception;
 
+	Hotel getByEmail(String hotelEmail) throws Exception;
 }

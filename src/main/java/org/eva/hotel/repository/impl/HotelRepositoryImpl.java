@@ -10,6 +10,8 @@ import org.eva.hotel.entity.Hotel;
 import org.eva.hotel.entity.Room;
 import org.eva.hotel.repository.HotelRepository;
 import org.eva.hotel.repository.RoomRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -17,6 +19,8 @@ import org.springframework.stereotype.Repository;
 @Transactional
 @Repository
 public class HotelRepositoryImpl implements HotelRepository {
+
+	static Logger log = LoggerFactory.getLogger(HotelRepositoryImpl.class);
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -86,6 +90,20 @@ public class HotelRepositoryImpl implements HotelRepository {
 	@Override
 	public List<Room> getRoom(long hotelId) throws Exception {
 		return roomRepository.getByHotelId(hotelId);
+	}
+
+	@Override
+	public Hotel getByEmail(String hotelEmail) throws Exception {
+		try {
+			String query = "FROM Hotel ht WHERE ht.email = ?";
+			Hotel hotel = (Hotel) entityManager.createQuery(query).setParameter(1,
+					hotelEmail).getSingleResult();
+			return hotel;
+		}
+		catch (Exception e) {
+			log.error(e.getMessage());
+			throw e;
+		}
 	}
 
 }
