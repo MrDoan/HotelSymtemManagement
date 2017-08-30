@@ -1,8 +1,7 @@
-package org.eva.hotel.beans.dto;
+package org.eva.hotel.beans.dto.hotel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-public class HotelDTO {
+public class HotelDTOIn {
 	@JsonProperty(value = "hotel_id")
 	private Long id;
 
@@ -17,7 +16,7 @@ public class HotelDTO {
 	@JsonProperty(value = "image")
 	private String imagePath;
 
-	public HotelDTO() {
+	public HotelDTOIn() {
 	}
 
 	public Long getId() {
@@ -67,5 +66,4 @@ public class HotelDTO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
 }

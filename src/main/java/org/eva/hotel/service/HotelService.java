@@ -6,17 +6,17 @@ import org.eva.hotel.entity.Hotel;
 import org.eva.hotel.entity.Room;
 
 public interface HotelService {
-	List<Hotel> getHotels();
+	List<Hotel> getHotels() throws Exception;
 
-	Hotel getHotelById(long hotelId);
+	Hotel getHotelById(long hotelId) throws Exception;
 
-	void insertHotel(Hotel hotel);
+	void insertHotel(Hotel hotel) throws Exception;
 
-	void updateHotel(Hotel hotel);
+	void updateHotel(Hotel hotel) throws Exception;
 
-	void deleteHotelById(long hotelId);
+	void deleteHotelById(long hotelId) throws Exception;
 
-	List<Room> getRoomsByHotel(long hotelId);
+	List<Room> getRoomsByHotel(long hotelId) throws Exception;
 
-
+	Hotel getByEmail(String hotelEmail) throws Exception;
 }

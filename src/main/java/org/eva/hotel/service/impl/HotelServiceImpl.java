@@ -20,47 +20,79 @@ public class HotelServiceImpl implements HotelService {
 	HotelRepository hotelRepository;
 
 	@Override
-	public List<Hotel> getHotels() {
+	public List<Hotel> getHotels() throws Exception {
 		try {
 			return hotelRepository.getAll();
 		}
 		catch (Exception e) {
 			log.error("Exception at HotelServiceImpl " + e.getMessage());
+			throw e;
 		}
-		return null;
 	}
 
 	@Override
-	public Hotel getHotelById(long hotelId) {
+	public Hotel getHotelById(long hotelId) throws Exception {
 		try {
 			return hotelRepository.getById(hotelId);
 		}
 		catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw e;
 		}
 	}
 
 	@Override
-	public void insertHotel(Hotel hotel) {
+	public void insertHotel(Hotel hotel) throws Exception {
 		try {
 			hotelRepository.insert(hotel);
 		} catch (Exception e) {
 			log.error(e.getMessage());
+			throw e;
 		}
 	}
 
 	@Override
-	public void updateHotel(Hotel hotel) {
+	public void updateHotel(Hotel hotel) throws Exception {
+		try {
+			hotelRepository.update(hotel);
+		}
+		catch (Exception e) {
+			log.error(e.getMessage());
+			throw e;
+		}
 	}
 
 	@Override
-	public void deleteHotelById(long hotelId) {
+	public void deleteHotelById(long hotelId) throws Exception {
+		try {
+			hotelRepository.deleteById(hotelId);
+		}
+		catch (Exception e) {
+			log.error(e.getMessage());
+			throw e;
+		}
 	}
 
 	@Override
-	public List<Room> getRoomsByHotel(long hotelId) {
-		return null;
+	public List<Room> getRoomsByHotel(long hotelId) throws Exception {
+		try {
+			return hotelRepository.getRoom(hotelId);
+		}
+		catch (Exception e) {
+			log.error(e.getMessage());
+			throw e;
+		}
+	}
+
+	@Override
+	public Hotel getByEmail(String hotelEmail) throws Exception {
+		try {
+			return hotelRepository.getByEmail(hotelEmail);
+		}
+		catch (Exception e) {
+			log.error(e.getMessage());
+			throw e;
+		}
 	}
 
 }

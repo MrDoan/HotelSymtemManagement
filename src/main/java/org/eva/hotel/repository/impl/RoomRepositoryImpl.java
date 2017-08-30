@@ -31,6 +31,7 @@ public class RoomRepositoryImpl implements RoomRepository {
 	}
 
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Room> getByHotelId(long hotelId) throws Exception {
 		String query = "FROM room r WHERE r.hotel_id = ? ORDER BY r.room_name";
