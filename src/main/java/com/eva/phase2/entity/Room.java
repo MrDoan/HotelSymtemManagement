@@ -14,31 +14,31 @@ public class Room {
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
-	private int id;
+	private Long id;
 
 	@Column(name = "hotel_id")
-	private long hotelId;
+	private Long hotelId;
 
 	@Column(name = "room_number")
-	private long roomNumber;
+	private Long roomNumber;
 
 	@Column(name = "room_name")
-	private long roomName;
+	private String roomName;
 
 	@Column(name = "description")
-	private String desription;
+	private String description;
 
 	@Column(name = "room_area")
-	private long roomArea;
+	private Long roomArea;
 
 	@Column(name = "number_of_beds")
-	private long numOfBed;
+	private Long numOfBed;
 
 	@Column(name = "number_of_adults")
-	private long numOfAdult;
+	private Long numOfAdult;
 
 	@Column(name = "number_of_children")
-	private long numOfChildren;
+	private Long numOfChildren;
 
 	@Column(name = "price")
 	private String price;
@@ -64,75 +64,75 @@ public class Room {
 	public Room() {
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public long getHotelId() {
+	public Long getHotelId() {
 		return hotelId;
 	}
 
-	public void setHotelId(long hotelId) {
+	public void setHotelId(Long hotelId) {
 		this.hotelId = hotelId;
 	}
 
-	public long getRoomNumber() {
+	public Long getRoomNumber() {
 		return roomNumber;
 	}
 
-	public void setRoomNumber(long roomNumber) {
+	public void setRoomNumber(Long roomNumber) {
 		this.roomNumber = roomNumber;
 	}
 
-	public long getRoomName() {
+	public String getRoomName() {
 		return roomName;
 	}
 
-	public void setRoomName(long roomName) {
+	public void setRoomName(String roomName) {
 		this.roomName = roomName;
 	}
 
-	public String getDesription() {
-		return desription;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDesription(String desription) {
-		this.desription = desription;
+	public void setDescription(String desription) {
+		this.description = desription;
 	}
 
-	public long getRoomArea() {
+	public Long getRoomArea() {
 		return roomArea;
 	}
 
-	public void setRoomArea(long roomArea) {
+	public void setRoomArea(Long roomArea) {
 		this.roomArea = roomArea;
 	}
 
-	public long getNumOfBed() {
+	public Long getNumOfBed() {
 		return numOfBed;
 	}
 
-	public void setNumOfBed(long numOfBed) {
+	public void setNumOfBed(Long numOfBed) {
 		this.numOfBed = numOfBed;
 	}
 
-	public long getNumOfAdult() {
+	public Long getNumOfAdult() {
 		return numOfAdult;
 	}
 
-	public void setNumOfAdult(long numOfAdult) {
+	public void setNumOfAdult(Long numOfAdult) {
 		this.numOfAdult = numOfAdult;
 	}
 
-	public long getNumOfChildren() {
+	public Long getNumOfChildren() {
 		return numOfChildren;
 	}
 
-	public void setNumOfChildren(long numOfChildren) {
+	public void setNumOfChildren(Long numOfChildren) {
 		this.numOfChildren = numOfChildren;
 	}
 
@@ -190,15 +190,6 @@ public class Room {
 
 	public void setLastModifiedOn(Timestamp lastModifiedOn) {
 		this.lastModifiedOn = lastModifiedOn;
-	}
-
-	@Override
-	public String toString() {
-		return "Room [id=" + id + ", hotelId=" + hotelId + ", roomNumber=" + roomNumber + ", roomName=" + roomName
-				+ ", desription=" + desription + ", roomArea=" + roomArea + ", numOfBed=" + numOfBed + ", numOfAdult="
-				+ numOfAdult + ", numOfChildren=" + numOfChildren + ", price=" + price + ", imagePath=" + imagePath
-				+ ", active=" + active + ", createdBy=" + createdBy + ", createdOn=" + createdOn + ", lastModifiedBy="
-				+ lastModifiedBy + ", lastModifiedOn=" + lastModifiedOn + "]";
 	}
 
 }
